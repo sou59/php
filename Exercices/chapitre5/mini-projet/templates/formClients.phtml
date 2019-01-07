@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Formulaire d'ajout de client</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+
+<form action="?" method="post">
+  <p>
+    <label for="civilite">Civilité</label><br />
+    <select id="civilite" name="civilite">
+      <option value="M.">Monsieur</option>
+      <option value="Mme"  <?=(isset($civilite) && $civilite == "Mme"  ? "selected='selected'" : "")?>>Madame</option>
+      <option value="Mlle" <?=(isset($civilite) && $civilite == "Mlle" ? "selected='selected'" : "")?>>Mademoiselle</option>
+    </select>
+  </p>
+  <p>
+    <label for="prenom">Prénom</label><br />
+    <input id="prenom" name="prenom" type="text" placeholder="Prénom" value="<?php echo isset($prenom) ? $prenom : ""; ?>" required="required" />
+  </p>
+  <p>
+    <label for="nom">Nom</label><br />
+    <input id="nom" name="nom" type="text" placeholder="Nom" value="<?php echo isset($nom) ? $nom : ""; ?>" />
+  </p>
+  <p>
+    <label for="forfait">Forfait</label><br />
+    <select id="forfait" name="forfait">
+      <option value="zen">Zen</option>
+      <option value="play" <?=(isset($forfait) && $forfait == "play" ? "selected='selected'" : "")?>>Play</option>
+      <option value="jet"  <?=(isset($forfait) && $forfait == "jet"  ? "selected='selected'" : "")?>>Jet</option>
+    </select>
+  </p>
+  <p>
+    <label for="telephone">Numéro de téléphone</label><br />
+    <input id="telephone" name="telephone" type="tel" placeholder="Numéro de téléphone" pattern="^(\d{10,10}|\d{2}[. ]\d{2}[. ]\d{2}[. ]\d{2}[. ]\d{2}|(00|\+)\d{5,15})$" value="<?php echo isset($telephone) ? $telephone : ""; ?>" required="required" />
+  </p>
+  <p>
+    <input id="submit" name="submit" type="submit" value="Soumettre le formulaire" />
+  </p>
+</form>
+
+  </body>
+</html>

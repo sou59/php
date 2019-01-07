@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Correction Chapitre 4</title>
+        <meta charset="UTF-8" />
+        
+        <style>
+            table {
+                width:90%;
+                margin:0 auto;
+            }
+            table td {
+                text-align:center;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="formClients.php">Ajouter un nouveau client</a></li>
+            </ul>
+        </nav>
+            
+        <table border='1'>
+            <tr>
+                <th rowspan='2'>Nom complet</th>
+                <th colspan='4'>Téléphone</th>
+            </tr>
+            <tr>
+                <th>Type forfait</th>
+                <th>Numéro</th>
+                <th>Zone géographique</th>
+                <th>Données utilisées / max (Mio)</th>
+            </tr>
+            <?php foreach ($tabClients as $client): // Boucler sur chaque client ?>
+                <?php $forfaits = $client->getAllForfaits(); // Récupérer un tableau des frofaits (nécessaires pour clients ayant plusieurs forfaits) ?>
+                <tr>
+                    <td rowspan='<?=count($forfaits) > 1 ? count($forfaits) : 1 // Fusionner les lignes si plusieurs forfaits?>'>
+                        <?=$client->getHtmlFullname()?>
+                    </td>
+                    <?php if (count($forfaits) == 0): // Cas d'un client n'ayant pas de ligne ?>
+                        <td colspan="4"></td>
+                    <?php else: // Pour tous les autres ?>
+                        <?php $curLine  = 1; // Déterminer le numéro de la ligne « telephonique » courante ?>
+                        <?php foreach($forfaits as $forfait): // Boucler sur les forfaits téléphoniques ?>
+                            <td><?=$forfait->getForfaitName()?></td>
+                            <td><?=$forfait->getTelephone()?></td>
+                            <td><?=$forfait->getTelephone()->getHtmlZoneGeo()?></td>
+                            <td><?=$forfait->getDataUsed()?></td>
+                            
+                            <?php if ($curLine++ < count($forfaits)): // Permet de sauter de ligne HTML (tr), quand on veut gérer les clients multi-lignes téléphonique ?>
+                                </tr><tr>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </body>
+</html>

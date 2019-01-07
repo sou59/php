@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercice Chapitre 4</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+  <table border='1'>
+    <thead>
+      <tr>
+      <th>Nom complet</th>
+      <th>Type forfait</th>
+      <th>Numéro</th>
+      <th>Zone géographique</th>
+      <th>Données utilisées / max (Mio)</th>
+    </tr>
+  <?php
+    foreach ($tabClients as $client) {
+  ?>
+      <tr>
+      <td><?=$client->getHtmlFullName()?></td>
+      <td><!-- Nom du forfait --></td>
+      <td><!-- Numéro de téléphone --></td>
+      <td><!-- Zone géographique --></td>
+      <td><!-- Données utilisées / max (Mio) --></td>
+    </tr>
+  <?php
+  }
+  ?>
+  </table>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+Contenu de l'article,<br />avec des saut de lignes HTMLs.
+<em>une valeur emphasé</em> !
