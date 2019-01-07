@@ -21,13 +21,20 @@ function puissance(int $x, int $y): int {
       1 : x*x
       2 : x*x*x
   */
-  $temp = $x;
-    for ($i = 1; $i < $y; $i++) {
+if ($y == 0) {
+    $temp = 1;
+} else if ($x == 0) {
+    $temp = 0;
+} else {
+
+   $temp = $x;
+       for ($i = 1; $i < $y; $i++) {
        $temp = $temp*$x; 
        // nombre de boucle déterminé par $y, donc on multiplie $x par lui même
-    }
+       }
     return $temp;
- }
+   }
+}
  
  echo '<br>';
 
