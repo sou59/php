@@ -44,8 +44,6 @@
       print_r($tab);
    echo "</pre>";
 
-   
-   
    echo "<hr />";
 
    // Création d'un tableau avec des valeurs numériques

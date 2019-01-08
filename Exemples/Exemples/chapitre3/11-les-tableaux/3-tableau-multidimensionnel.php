@@ -1,6 +1,6 @@
 <?php
     $tab = array(); // Cette « déclaration » est inutile en PHP
-    
+    ini_set("display_errors", 1);
     // Affectation d'un tableau pour chaque élément du tableau $tab
     $tab[0] = array(10, 5, 45,  65, 58,  41);
     $tab[1] = array(5,  1,  4, 165, 58,   1);
@@ -21,8 +21,8 @@
     </tr>
     <?php foreach ($tab as $key => $val): ?>
         <tr>
-            <td><?=$key?></td>
-            <td>[<?=@implode(",", $val)?>]</td>
+            <td><?= $key ?></td>
+            <td>[<?= implode(",", $val) ?>]</td>
         </tr>
     <?php endforeach; ?>
 </table>

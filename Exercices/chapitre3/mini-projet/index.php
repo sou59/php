@@ -9,45 +9,25 @@
    */
     
    $tabClients = array(
-      {
+      0 => array(
          "prenom" => "toto",
          "nom" => "titi",
-         "telephone" => "0320121212",
-         "forfait" => {
-            0 => "Fixe",
-            1 => "Zen",
-            3 => "Play",
-            4 => "Jet"
-         },
-         "donnees" => ""
-      },
-      {
+         "telephone" => "0120121212",
+         "forfait" => "Fixe",
+      ),
+      1 => array(
          "prenom" => "souad",
          "nom" => "marcel",
-         "telephone" => "0312345678",
-         "forfait" => {
-            0 => "Fixe",
-            1 => "Zen",
-            3 => "Play",
-            4 => "Jet"
-         },
-         "donnees" => ""
-      },
-      {
+         "telephone" => "0212345678",
+         "forfait" => "Zen"
+      ),
+      3 => array(
          "prenom" => "nico",
          "nom" => "charly",
          "telephone" => "0314321587",
-         "forfait" => {
-            0 => "Fixe",
-            1 => "Zen",
-            3 => "Play",
-            4 => "Jet"
-         },
-         "donnees" => ""
-      },
-
+         "forfait" => "Play"
+      )
    );
-    
     
    /*
       Parcourir le tableau $tabClients pour afficher les informations en HTML
@@ -65,17 +45,37 @@
          <thead>
             <tr>
                <th>Nom complet</th>
-               <th>Type forfait</th>
+               <th>Prénom</th>
                <th>Téléphone</th>
+               <th>Forfait</th>
+               <th>Région</th>
+
             </tr>
          </thead>
          <tbody>
-         <?php foreach($tabClient as $tabClients)   ?>
+         <?php
+            var_dump($tabClients);
+
+            foreach($tabClients as $val):   ?>
             <tr>
-               <td>  <?php $tabClient['nom'] ?>  </td>
-               <td>  <?php $tabClient['forfait'] ?>  </td>
-               <td>  <?php $tabClient['donnees'] ?>  </td>
+               <td>  <?= $val['nom'] ?>  </td>
+               <td>  <?= $val['prenom'] ?>  </td>
+               <td>  <?= $val['telephone'] ?>  </td>
+               <td>  <?= $val['forfait'] ?>  </td>
+               <td>
+                  <?php 
+                     if (substr($val["telephone"], 0,2) == "01") {
+                        echo "Zone Paris";
+                     } else if (substr($val["telephone"], 0,2) == "02") {
+                        echo "Zone Brest";
+                     } else {
+                        echo "Zone Nice";
+                     }
+                  ?> 
+               </td>
             </tr>
+          <?php endforeach; ?>
+
          </tbody>
       </table>
    </body>
