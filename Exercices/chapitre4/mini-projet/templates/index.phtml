@@ -19,10 +19,10 @@
   ?>
       <tr>
       <td><?=$client->getHtmlFullName()?></td>
-      <td><!-- Nom du forfait --></td>
-      <td><!-- Numéro de téléphone --></td>
-      <td><!-- Zone géographique --></td>
-      <td><!-- Données utilisées / max (Mio) --></td>
+      <td><?=$client->getForfait()->getHtmlForfait()?></td>
+      <td><?=$client->getHtmlTelephone()?></td>
+      <td><?=$client->getHtmlZone()?></td>
+      <td>Data<!-- Données utilisées / max (Mio) --></td>
     </tr>
   <?php
   }

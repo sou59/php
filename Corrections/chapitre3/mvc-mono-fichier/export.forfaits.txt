@@ -1,0 +1,1 @@
+a:3:{i:1;a:2:{s:3:"nom";s:3:"Zen";s:8:"data_max";N;}i:2;a:2:{s:3:"nom";s:4:"Play";s:8:"data_max";i:104857600;}i:3;a:2:{s:3:"nom";s:3:"Jet";s:8:"data_max";i:524288000;}}

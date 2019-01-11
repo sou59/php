@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Correction Chapitre 3 &ndash; Solution 2</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+  <table border='1'>
+   <thead>
+      <tr>
+         <th>Nom complet</th>
+         <th>Type forfait</th>
+         <th>Téléphone</th>
+         <th>Zone géographique</th>
+         <th>Données utilisées / max (Mio)</th>
+      </tr>
+      <?php foreach ($tabClients as $client):?>
+        <tr>
+           <td><?=$client['civilite']?> <?=$client['prenom']?> <?=$client['nom']?></td>
+           <td><?=$tabForfaits[$client['typeForfait']]['nom']?></td>
+           <td><?=$client['telephone']?></td>
+           <td><?=getZoneGeoFromPhone($client['telephone'])?></td>
+           <td><?=getHtmlDataUsage($client['data_utilise'], $tabForfaits[$client['typeForfait']]['data_max'])?></td>
+        </tr>
+      <?php endforeach; ?>
+  </table>
+  </body>
+</html>

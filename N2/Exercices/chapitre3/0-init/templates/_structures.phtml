@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Correction Chapitre 7</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+  <nav>
+    <ul>
+      <li><a href="index.php">Page d'accueil</a></li>
+      <?php if (isset($_SESSION['userrole']) && $_SESSION['userrole'] == 'ADMIN'): ?>
+	<li><a href="lstClients.php">Voir la liste des clients</a></li>
+	<li><a href="formClients.php">Ajouter un nouveau client</a></li>
+	
+      <?php elseif (isset($_SESSION['userrole']) && $_SESSION['userrole'] == 'CLIENT'): ?>
+	<li><a href="detailsClients.php">Détails de votre compte</a></li>
+	<li><a href="contact.php">Formulaire de contact</a></li>
+	
+      <?php else: ?>
+	<li><a href="index.php">Formulaire d'identification</a></li>
+      <?php endif ?>
+    </ul>
+  </nav>
+  <?php require ($tpl_contents); ?>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+
+	<?php if (isset($err)) { ?>
+		<div class='infos'><?php echo implode("<br />", $err); ?></div>
+	<?php } ?>
+
+	<form action="?" method="post">
+		<label for="username">Utilisateur</label><br />
+		<input type="text" maxlength="50" name="username" id="username" />
+		<br />
+		<br />
+
+		<label for="userpass">Mot de passe</label><br />
+		<input type="password" maxlength="100" name="userpass" id="userpass" />
+		<br />
+		<br />
+
+		<input type="submit" value="M'authentifier" />
+	</form>  

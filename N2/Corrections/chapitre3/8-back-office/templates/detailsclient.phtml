@@ -1,0 +1,8 @@
+<h1><?=$this->client->getFullName()?></h1>
+<?php foreach ($this->client->getLignes() as $tel => $forfait): ?>
+<ul>
+	<li><?=$tel?></li>
+	<li>Forfait : <?=$forfait->getForfaitName()?></li>
+	<li>Données : <?=$forfait->getDataUsed()?> Mio</li>
+</ul>
+<?php endforeach; ?>

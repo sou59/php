@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Correction Chapitre 4</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+  <table border='1'>
+    <tr>
+      <th rowspan='2'>Nom complet</th>
+      <th colspan='4'>Téléphone</th>
+    </tr>
+    <tr>
+      <th>Type forfait</th>
+      <th>Numéro</th>
+      <th>Zone géographique</th>
+      <th>Données utilisées / max (Mio)</th>
+    </tr>
+    <?php foreach ($tabClients as $client): // Boucler sur chaque client ?>
+      <?php $lignes = $client->getLignes(); // Récupérer un tableau de lignes (nécessaires pour clients ayant plusieurs lignes) ?>
+      <tr>
+        <td rowspan='<?=count($lignes) > 1 ? count($lignes) : 1?>'><?=$client->getFullname()?></td>
+        <?php if (count($lignes) == 0): // Cas d'un client n'ayant pas de ligne ?>
+          <td colspan="4"></td>
+        <?php else: // Pour tous les autres ?>
+          <?php $curLine  = 1; // Déterminer le numéro de la ligne « telephonique » courante ?>
+          <?php foreach($lignes as $phoneNumber => $forfait): // Boucler sur les lignes téléphoniques ?>
+          
+            <td><?=$forfait->getForfaitName()?></td>
+            <td><?=$forfait->getPhoneNumber()?></td>
+            <td><?=BoiteAOutil::getInstance()->getGeoZoneFromPhoneNumber($forfait->getPhoneNumber())?></td>
+            <td><?=$forfait->getDataUsed()?></td>
+            
+            <?php if ($curLine++ < count($lignes)): // Permet de sauter de ligne HTML (tr), quand on veut gérer les clients multi-lignes téléphonique ?>
+              </tr><tr>
+            <?php endif; ?>
+          <?php endforeach; ?>
+        <?php endif; ?>
+      </tr>
+    <?php endforeach; ?>
+  </table>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<?php
+	if (isset($err)) {
+		echo "<div class='infos'>".implode("<br />", $err)."</div>";
+	} else if (isset($tosee)) {
+		echo "<div class='infos'>".implode("<br />", $tosee)."</div>";
+	}
+?>
+
+<h1><?=$client->getFullName()?></h1>
+<?php foreach ($client->getLignes() as $tel => $forfait): ?>
+<ul>
+	<li><?=$tel?></li>
+	<li>Forfait : <?=$forfait->getForfaitName()?></li>
+	<li>Données : <?=$forfait->getDataUsed()?> Mio</li>
+</ul>
+<?php endforeach; ?>

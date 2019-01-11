@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PHP Niveau 2</title>
+    <meta charset="UTF-8" />
+    <style>
+        .infos {
+            background-color:rgba(220, 150, 150, 0.6);
+            text-align: center;
+            border:2px solid black;
+            border-radius: 20px;
+        }
+        #logo {
+            position:fixed;
+            top:0;
+            right:0;
+        }
+    </style>
+  </head>
+  <body>
+  <nav>
+    <?=$this->getMenuTop();?>
+  </nav>
+  <div id="logo">EXTRANET</div>
+  <?=$this->getContent();?>
+  </body>
+</html>

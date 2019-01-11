@@ -6,28 +6,30 @@
         private $taille;
 
         public function construire($vitesse,$taille) {
-            if ($vitesse != 5 || $vitesse != 6 || $vitesse != 8) {
-                $this->$vitesse = 5;
+            if ($this->vitesse != 5 || $this->vitesse != 6 || $this->vitesse != 8) {
+                $this->vitesse = 5;
             }
-            if (!($taille < 0)) {
-                $this->$taille;
+            if ($taille >= 0) {
+                $this->taille =$taille;
+            } else {
+                $this->taille = 0;
             }
         }
         public function ajouter_2_roues() {
-            if (!($taille >= 2)) {
-                return  $taille+=2;
-            }
+            if ($this->nbr_roue == 2) {
+                $this->nbr_roue+=2;
+            } 
         }
         public function retirer_2_roues() {
-            if ($taille > 3) {
-                return  $taille-=2;
+            if ($this->nbr_roue == 4) {
+                $this->nbr_roue-=2;
             }
         }
         public function getInfosVelo() {
             echo "<ul>";
-                echo "<li>Vitesse du velo :" .$this->$vitesse. "<li>";
-                echo "<li>Nombre de roue :" .$this->$nbr_roue. "<li>";
-                echo "<li>Taille des roues :" .$this->$taille. "<li>";
+                echo "<li>Vitesse du velo :" .$this->vitesse. "<li>";
+                echo "<li>Nombre de roue :" .$this->nbr_roue. "<li>";
+                echo "<li>Taille des roues :" .$this->taille. "<li>";
             echo "<ul>";
         }
 
@@ -41,7 +43,7 @@
     // Construire les vélos
     $velo1->construire(7, 10);
     $velo2->construire(6, -1);
-    
+
     // Appliquer des comportements de changements de roues
     $velo1->ajouter_2_roues();
     $velo1->ajouter_2_roues();

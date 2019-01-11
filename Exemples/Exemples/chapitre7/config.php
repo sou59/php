@@ -12,5 +12,5 @@
 
   define("MYSQL_HOST", "localhost");   // Nom de l'hôte
   define("MYSQL_BASE", "formation");   // Nom de la base de données
-  define("MYSQL_USER", "formation");   // Nom d'utilisateur SQL
-  define("MYSQL_PASS", "T@rt1Fl3tt3"); // Mot de passe
+  define("MYSQL_USER", "root");   // Nom d'utilisateur SQL
+  define("MYSQL_PASS", ""); // Mot de passe

@@ -1,0 +1,42 @@
+  <table border='1'>
+  	<thead>
+  		<tr>
+			<th rowspan='2'>Nom complet</th>
+			<th rowspan='2'>Actions</th>
+			<th colspan='4'>Téléphone</th>
+		</tr>
+  		<tr>
+			<th>Type forfait</th>
+			<th>Numéro</th>
+			<th>Zone géographique</th>
+			<th>Données utilisées / max (Mio)</th>
+		</tr>
+  <?php
+  	foreach ($tabClients as $numClient => $client) {
+		$lignes   = $client->getLignes();
+		$howLines = count($lignes);
+		$curLine  = 1;
+  ?>
+  		<tr>
+			<td rowspan='<?=$howLines > 1 ? $howLines : 1?>'><?=$client->getFullname()?></td>
+			<td rowspan='<?=$howLines > 1 ? $howLines : 1?>'><a href='deleteClients.php?idClient=<?=$numClient?>' onclick='return confirm("Supprimer le compte client");'>Supprimer de la bdd</a></td>
+			<?php
+			    if ($howLines == 0) {
+			      echo '<td colspan="4"></td>';
+			    } else {
+				foreach($lignes as $phoneNumber => $forfait):
+			?>
+					<td><?=$forfait->getForfaitName()?></td>
+					<td><?=$phoneNumber?></td>
+					<td><?=$GLOBALS['BAO']->getGeoZoneFromPhoneNumber($phoneNumber)?></td>
+					<td><?=$forfait->getDataUsed()?></td>
+					<?php if ($curLine++ < $howLines) echo '</tr><tr>'; ?>
+			<?php
+				endforeach;
+			    }
+			?>
+		</tr>
+  <?php
+	}
+  ?>
+  </table>

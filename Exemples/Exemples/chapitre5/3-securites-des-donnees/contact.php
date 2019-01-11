@@ -27,7 +27,8 @@
          $tosee[] = "<b>Message :</b>  <i>$message</i>";
       }
    }
-?><!DOCTYPE HTML>
+?>
+<!DOCTYPE HTML>
 <html>
    <head>
       <title>Sécurité des formulaires</title>

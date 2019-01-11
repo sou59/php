@@ -1,0 +1,38 @@
+<?php
+   $ii = 0;
+   $tabClients[$ii]['civilite']     = 'M.';
+   $tabClients[$ii]['prenom']       = 'Jean';
+   $tabClients[$ii]['nom']          = 'ALOUET';
+   $tabClients[$ii]['telephone']    = '0102030405';
+   $tabClients[$ii]['typeForfait']  = 2;
+   $tabClients[$ii]['data_utilise'] = 34034;
+   $ii++;
+   $tabClients[$ii]['civilite']     = 'Mme';
+   $tabClients[$ii]['prenom']       = 'Alice';
+   $tabClients[$ii]['nom']          = 'DELAH';
+   $tabClients[$ii]['telephone']    = '0607080304';
+   $tabClients[$ii]['typeForfait']  = 1;
+   $tabClients[$ii]['data_utilise'] = null;
+   $ii++;
+   $tabClients[$ii]['civilite']     = 'Mlle';
+   $tabClients[$ii]['prenom']       = 'Louise';
+   $tabClients[$ii]['nom']          = 'DELAH';
+   $tabClients[$ii]['telephone']    = '0607080305';
+   $tabClients[$ii]['typeForfait']  = 2;
+   $tabClients[$ii]['data_utilise'] = 456789;
+   $ii++;
+   $tabClients[$ii]['civilite']     = 'M.';
+   $tabClients[$ii]['prenom']       = 'Albert';
+   $tabClients[$ii]['nom']          = 'DUPONT';
+   $tabClients[$ii]['telephone']    = '0825010101';
+   $tabClients[$ii]['typeForfait']  = 1;
+   $tabClients[$ii]['data_utilise'] = null;
+   $ii++;
+   $tabClients[$ii]['civilite']     = 'M.';
+   $tabClients[$ii]['prenom']       = 'Durand';
+   $tabClients[$ii]['nom']          = 'DUPOND';
+   $tabClients[$ii]['telephone']    = '0901010101';
+   $tabClients[$ii]['typeForfait']  = 3;
+   $tabClients[$ii]['data_utilise'] = '34567890';
+   
+   unset($ii);

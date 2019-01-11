@@ -1,0 +1,37 @@
+<?php
+	if (isset($err)) {
+		echo "<div class='infos'>".implode("<br />", $err)."</div>";
+	} else if (isset($tosee)) {
+		echo "<div class='infos'>".implode("<br />", $tosee)."</div>";
+	}
+?>
+
+<form action="?" method="post" enctype="multipart/form-data">
+	<p>
+		<label for="civilite">Civilité</label><br />
+		<select id="civilite" name="civilite">
+			<option value="M.">Monsieur</option>
+			<option value="Mme"  <?=(isset($civilite) && $civilite == "Mme"  ? "selected='selected'" : "")?>>Madame</option>
+			<option value="Mlle" <?=(isset($civilite) && $civilite == "Mlle" ? "selected='selected'" : "")?>>Mademoiselle</option>
+		</select>
+	</p>
+	<p>
+		<label for="prenom">Prénom</label><br />
+		<input id="prenom" name="prenom" type="text" placeholder="Prénom" value="<?php echo isset($prenom) ? $prenom : ""; ?>" required="required" />
+	</p>
+	<p>
+		<label for="nom">Nom</label><br />
+		<input id="nom" name="nom" type="text" placeholder="Nom" value="<?php echo isset($nom) ? $nom : ""; ?>" />
+	</p>
+	<p>
+		<label for="pj">Pièce à joindre</label><br />
+		<input id="pj" name="pj" type="file" />
+	</p>
+	<p>
+		<label for="message">Message</label><br />
+		<textarea id="message" name="message" cols="50" rows="15"><?php echo isset($message) ? $message : ""; ?></textarea>
+	</p>
+	<p>
+		<input id="submit" name="submit" type="submit" value="Soumettre le formulaire" />
+	</p>
+</form>
